@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Nhảy Dây cùng Bee</title>
+  <meta name="description" content="Mỗi ngày nhảy dây, thêm clip, nhận 1 sao và giữ chuỗi.">
+  <meta name="theme-color" content="#12B5A6">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Nhảy cùng Bee">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <linearGradient id="starGrad" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#FFD84D"/><stop offset="1" stop-color="#FF8A3D"/>
+      </linearGradient>
+      <symbol id="star" viewBox="0 0 24 24">
+        <path d="M12 2.6l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z" fill="url(#starGrad)" stroke="#E8562A" stroke-width="1.2" stroke-linejoin="round"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <div class="statusbar-bg"></div>
+
+  <main class="app">
+    <section id="tab-home" class="tab is-active" aria-label="Hôm nay"></section>
+    <section id="tab-cal" class="tab" aria-label="Lịch"></section>
+    <section id="tab-stats" class="tab" aria-label="Thành tích"></section>
+  </main>
+
+  <nav class="tabbar" aria-label="Điều hướng">
+    <button class="tabbtn is-active" data-tab="home"><span class="ti">🔥</span><span>Hôm nay</span></button>
+    <button class="tabbtn" data-tab="cal"><span class="ti">📅</span><span>Lịch</span></button>
+    <button class="tabbtn" data-tab="stats"><span class="ti">🏆</span><span>Thành tích</span></button>
+  </nav>
+
+  <input type="file" id="pick-video" accept="video/*" hidden>
+  <input type="file" id="pick-backup" accept=".json,application/json" hidden>
+
+  <div id="sheet" class="sheet-wrap" hidden>
+    <div class="sheet-backdrop" data-close></div>
+    <div class="sheet" role="dialog" aria-modal="true">
+      <div class="sheet-handle"></div>
+      <button class="sheet-x" data-close aria-label="Đóng">✕</button>
+      <div id="sheet-body"></div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="mascot.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

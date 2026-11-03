@@ -1,0 +1,16 @@
+{
+  "name": "Nhảy Dây cùng Bee",
+  "short_name": "Nhảy cùng Bee",
+  "description": "Mỗi ngày nhảy dây, thêm clip, nhận 1 sao và giữ chuỗi.",
+  "lang": "vi",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#FFF8E9",
+  "theme_color": "#12B5A6",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}
