@@ -13,13 +13,12 @@ Dữ liệu (sao, chuỗi, ảnh thu nhỏ, bản sao clip nếu bật) nằm tr
 | `manifest.webmanifest`, `icons/` | Tên + icon khi thêm vào màn hình chính |
 | `tools/` | Tạo lại icon: `sh tools/make-icons.sh` (không cần đưa lên mạng) |
 
-## 1. Đưa app lên mạng (chỉ làm 1 lần)
+## 1. App đang ở đâu trên mạng
 
-iPhone chỉ cho app chạy offline khi trang được mở qua **HTTPS**. Đưa thư mục này lên một nơi lưu trữ miễn phí, ví dụ:
+- **Link cài app:** https://rainyhcmus.github.io/nhay-day/
+- **Kho mã (công khai):** https://github.com/RainyHCMUS/nhay-day (GitHub Pages, nhánh `main`, thư mục gốc; đưa lên ngày 03/11/2026)
 
-- **GitHub Pages:** tạo kho (repo) công khai, đẩy các tệp lên, vào *Settings → Pages* chọn nhánh `main`. Link có dạng `https://<tên-tài-khoản>.github.io/nhay-day/`.
-- **Netlify Drop:** đăng nhập app.netlify.com/drop rồi kéo thả thư mục `nhay-day`.
-
+iPhone chỉ cho app chạy offline khi trang được mở qua **HTTPS**, nên app nằm trên GitHub Pages thay vì Mac mini.
 Trên mạng chỉ có mã app, không có dữ liệu hay video của ai.
 
 ## 2. Cài lên iPhone
@@ -46,7 +45,8 @@ Xoá icon app = mất dữ liệu. Vào ⚙️ **Cài đặt → Sao lưu ngay**
 ## 5. Phát hành bản mới
 
 1. Sửa mã, tăng `APP_VERSION` trong `app.js`, đổi `CACHE` trong `sw.js` cho trùng phiên bản, ghi `CHANGELOG.md`.
-2. Đưa lại lên nơi lưu trữ. iPhone tự lấy bản mới ở lần mở app có mạng kế tiếp; dữ liệu giữ nguyên.
+2. Đẩy lên GitHub (trong thư mục `nhay-day`): `git add -A && git commit -m "vX.Y.Z ..." && git -c credential.helper='!gh auth git-credential' push` (máy chưa cấu hình mật khẩu git nên mượn đăng nhập của `gh`). Khoảng 1 phút sau GitHub Pages tự cập nhật.
+3. iPhone tự lấy bản mới ở lần mở app có mạng kế tiếp (có khi phải mở lại app lần 2); dữ liệu giữ nguyên.
 
 Nếu quên đổi `CACHE` trong `sw.js`, iPhone sẽ **không** nhận bản mới.
 
