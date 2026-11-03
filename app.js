@@ -1,6 +1,6 @@
 'use strict';
 // Nhảy Dây cùng Bee — mỗi ngày có clip = 1 sao. Toàn bộ dữ liệu nằm trong IndexedDB trên máy.
-const APP_VERSION = '1.3.0';
+const APP_VERSION = '1.3.1';
 
 const MILESTONES = [
   { days: 3, e: '🌱', name: 'Khởi động' },
@@ -32,8 +32,6 @@ const LINES = {
     'Nhảy xong nhớ quay clip để Bee chấm sao nha!',
     'Bee vỗ cánh sẵn rồi, {name} lên dây thôi! 🐝',
     'Chăm chỉ như ong, mỗi ngày một chút là thành thói quen 🍯',
-    'Hôm nay Bee diện {outfit} rồi nè, mình lên dây thôi!',
-    'Nhìn {eyes} của Bee nè, hôm nay nhất định phải có sao!',
   ],
   late: [
     'Còn kịp mà! Nhảy nhanh 5 phút rồi đi ngủ nha 🌙',
@@ -47,7 +45,6 @@ const LINES = {
     'Mai gặp lại nha, Bee chờ đó! 😎',
     'Thêm một giọt mật ngọt vào hũ chuỗi rồi 🍯',
     'Bạn chăm hơn cả ong luôn đó {name}! 🐝',
-    'Bee mặc {outfit} ăn mừng sao hôm nay của bạn nè!',
     'Cơ thể cảm ơn bạn đó, {name} ơi 💖',
   ],
   broken: [
@@ -168,13 +165,10 @@ function pickLine(info) {
   else pool = LINES.broken;
   const choices = pool.length > 1 ? pool.filter((l) => l !== lastLine) : pool;
   lastLine = choices[Math.floor(Math.random() * choices.length)];
-  const look = todayLook();
   return lastLine
     .replaceAll('{name}', state.name || 'bạn')
     .replaceAll('{n}', info.cur)
-    .replaceAll('{best}', info.best)
-    .replaceAll('{outfit}', look.outfitInfo.name.toLowerCase() + ' ' + look.outfitInfo.e)
-    .replaceAll('{eyes}', look.eyesInfo.name.toLowerCase() + ' ' + look.eyesInfo.e);
+    .replaceAll('{best}', info.best);
 }
 
 function moodFor(info) {
@@ -234,7 +228,6 @@ function renderHome() {
   const t = todayKey();
   const s = starDates();
   const now = new Date();
-  const lk = todayLook();
 
   const week = [];
   for (let i = 6; i >= 0; i--) {
@@ -266,7 +259,6 @@ function renderHome() {
       <div id="mascot-slot">${bee(state.mood)}</div>
       <div class="bubble" id="bubble">${esc(state.line)}</div>
     </div>
-    <div class="look-chip"><b>Bee hôm nay</b> ${lk.outfitInfo.e} ${esc(lk.outfitInfo.name)} · ${lk.eyesInfo.e} ${esc(lk.eyesInfo.name)}</div>
     <div class="streak">
       <div class="streak-row">
         <div class="flame ${info.cur ? '' : 'off'}">🔥</div>

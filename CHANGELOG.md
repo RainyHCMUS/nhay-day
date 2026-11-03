@@ -1,5 +1,8 @@
 # CHANGELOG — Nhảy Dây cùng Bee
 
+## v1.3.1 — 03/11/2026
+- Bỏ dòng "Bee hôm nay: …" và các câu thoại gọi tên bộ đồ/ánh mắt — chỉ hiện hình Bee (vẫn đổi diện mạo mỗi ngày).
+
 ## v1.3.0 — 03/11/2026
 - Bee mỗi ngày một diện mạo: 10 bộ đồ (băng đô, mũ lưỡi trai lệch, khăn lau mồ hôi, áo đấu số 1, tai nghe, vương miện, mũ len, nơ, áo choàng siêu anh hùng, huy chương vàng) × 8 ánh mắt (tròn long lanh, lấp lánh, quyết tâm, kính râm, mi cong, mắt sao, mắt tim, tập trung) × 6 màu phụ kiện.
 - Bộ đồ cố định trong ngày, sang ngày mới tự đổi; hai ngày liền nhau luôn khác cả đồ, mắt và màu (vòng lặp đầy đủ 120 ngày).

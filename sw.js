@@ -1,5 +1,5 @@
 // Cho app chạy không cần mạng. Đổi CACHE mỗi khi phát hành bản mới để iPhone tải lại.
-const CACHE = 'nhay-day-1.3.0';
+const CACHE = 'nhay-day-1.3.1';
 const FILES = [
   './',
   './index.html',
